@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>溪枫狼的博客</title>
-  <subtitle>副标题</subtitle>
+  <subtitle>爬更高的山，走更远的路，敲更少的代码。 —iOS开发进阶菜鸟</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xifenglang.com/"/>
