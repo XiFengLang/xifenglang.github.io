@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.xifenglang.com/"/>
-  <updated>2017-04-16T12:49:51.000Z</updated>
+  <updated>2017-04-16T13:58:04.000Z</updated>
   <id>https://www.xifenglang.com/</id>
   
   <author>
@@ -16,19 +16,17 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博客第一篇文章应该取什么题？</title>
+    <title>搞事情ing...</title>
     <link href="https://www.xifenglang.com/2017/04/16/testBlog/"/>
     <id>https://www.xifenglang.com/2017/04/16/testBlog/</id>
     <published>2017-04-16T04:02:55.000Z</published>
-    <updated>2017-04-16T12:49:51.000Z</updated>
+    <updated>2017-04-16T13:58:04.000Z</updated>
     
-    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="http://music.163.com/#/m/song?id=402431562&auto=1&height=32"></iframe>
-
-<h1 id="无题"><a href="#无题" class="headerlink" title="无题"></a>无题</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="搞事情ing"><a href="#搞事情ing…" class="headerlink" title="搞事情ing…"></a>搞事情ing…</h1>]]></content>
     
     <summary type="html">
     
-      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;http://music.163.com/#/m/song?id=402431562
+      &lt;h1 id=&quot;搞事情ing&quot;&gt;&lt;a href=&quot;#搞事情ing…&quot; class=&quot;headerlink&quot; title=&quot;搞事情ing…&quot;&gt;&lt;/a&gt;搞事情ing…&lt;/h1&gt;
     
     </summary>
     
