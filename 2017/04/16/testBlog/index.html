@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-  <title>testBlog | 溪枫狼的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>testBlog | 溪枫狼的博客 | 爬更高的山，走更远的路，敲更少的代码。 —iOS开发进阶菜鸟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="testBlog">
@@ -16,81 +31,160 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="testBlog">
 <meta name="twitter:description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
-  
-    <link rel="alternate" href="/atom.xml" title="溪枫狼的博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+    
+        <link rel="alternate" type="application/atom+xml" title="溪枫狼的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@1.6.1/css/style.css">
+    <script>window.lazyScripts=[]</script>
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">溪枫狼的博客</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">爬更高的山，走更远的路，敲更少的代码。 —iOS开发进阶菜鸟</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://www.xifenglang.com"></form>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">溪枫狼</h5>
+          <a href="mailto:lang131jp@vip.qq.com" title="lang131jp@vip.qq.com" class="mail">lang131jp@vip.qq.com</a>
+        </hgroup>
       </div>
     </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-testBlog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/04/16/testBlog/" class="article-date">
-  <time datetime="2017-04-16T04:02:55.000Z" itemprop="datePublished">2017-04-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-  
-    <h1 class="article-title" itemprop="name">
-      testBlog
-    </h1>
-  
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/XiFengLang" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/3312365265" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.jianshu.com/u/829c32432f78" target="_blank" >
+                <i class="icon icon-lg icon-link"></i>
+                简书
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
 
-      </header>
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">testBlog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">testBlog</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-16T04:02:55.000Z" itemprop="datePublished" class="page-time">
+  2017-04-16
+</time>
+
+
+            
+        </h5>
+    </div>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="wkwebview使用小结"><a href="#WKWebView使用小结" class="headerlink" title="WKWebView使用小结"></a>WKWebView使用小结</h2><p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wkwebview使用小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">WKWebView使用小结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录"><span class="post-toc-number">2.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置wkwebview-目录"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置WKWebView   [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用kvo实现进度条-目录"><span class="post-toc-number">4.</span> <span class="post-toc-text">利用KVO实现进度条 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wknavigationdelegate协议监听网页加载周期-目录"><span class="post-toc-number">5.</span> <span class="post-toc-text">WKNavigationDelegate协议，监听网页加载周期 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wkuidelegate协议常用来显示uialertcontroller弹窗-目录"><span class="post-toc-number">6.</span> <span class="post-toc-text">WKUIDelegate协议，常用来显示UIAlertController弹窗 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互实现流程-目录"><span class="post-toc-number">7.</span> <span class="post-toc-text">JS交互实现流程 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互-踩坑-填坑-目录"><span class="post-toc-number">8.</span> <span class="post-toc-text">JS交互 踩坑、填坑 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-testBlog"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">testBlog</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-04-16 12:02:55" datetime="2017-04-16T04:02:55.000Z"  itemprop="datePublished">2017-04-16</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="wkwebview使用小结"><a href="#WKWebView使用小结" class="headerlink" title="WKWebView使用小结"></a>WKWebView使用小结</h2><p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><span id="Directory">目录</span></h2><ul>
 <li><a href="#WKWeb_Comfigue">配置WKWebView</a></li>
 <li><a href="#WKWeb_KVO">利用KVO实现进度条</a></li>
@@ -164,122 +258,308 @@
 </ul>
 <p><strong><a href="#Directory">[↑↑目录]</a></strong></p>
 
-      
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-04-16T10:53:28.000Z" itemprop="dateUpdated">2017-04-16 18:53:28</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/04/16/testBlog/" target="_blank" rel="external">https://www.xifenglang.com/2017/04/16/testBlog/</a>
     </div>
-    <footer class="article-footer">
-      <a data-url="https://www.xifenglang.com/2017/04/16/testBlog/" data-id="cj1kkpyp50005mc5r5a4mvfdo" class="article-share-link">Share</a>
-      
-      
+    <footer>
+        <a href="https://www.xifenglang.com">
+            <img src="/img/avatar.jpg" alt="溪枫狼">
+            溪枫狼
+        </a>
     </footer>
-  </div>
-  
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
     
-<nav id="article-nav">
-  
-    <a href="/2017/04/15/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Hello World
-        
-      </div>
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.xifenglang.com/2017/04/16/testBlog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《testBlog》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.xifenglang.com/2017/04/16/testBlog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
     </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
   
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/04/15/hello-world/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
   
-    <a href="/2017/04/16/kkk/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">kkk</div>
-    </a>
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/04/16/kkk/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">kkk</h4>
+      </a>
+    </div>
   
 </nav>
 
-  
+
+
+    
+
+
+
+
+
+
+
+
+
+
 </article>
 
-</section>
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        好像支持打赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
         
-          <aside id="sidebar">
-  
-    
+        <li>
+            <img src="/img/wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
 
-  
-    
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
 
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/04/16/hello/">hello</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/16/hhh/">hhh</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/16/kkk/">kkk</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/16/testBlog/">testBlog</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/15/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>溪枫狼 &copy; 2017</span>
+        </p>
     </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 溪枫狼<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.xifenglang.com/2017/04/16/testBlog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《testBlog》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.xifenglang.com/2017/04/16/testBlog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
 
 
-<script src="/js/script.js"></script>
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aS27kMAwFwNz/0pltBg0rj6QcwHJ5ZXTLn/KCoEh+fcXH94/j5y+faz7Xf65c3/Nq/YYDAwPjsYzv5ZGsSa5a89bn66dgYGC8h3EVwdbn60CZhN3qsy5/x8DAwIgZSaqXpIwYGBgYc8Z6E9tDJltlDAyMNzOS7Wh+VW+b+kd7cQwMjAcy8qr735/f0t/AwMB4FKNX7p8EzV1v8t89MTAwjmbkAa6XMuajG9VhCwwMjDcz8lCbFPfzF+oV8qIbYWBgPJyRhM5qwJ2kj+sPcXk3DAyMoxn3FdomYxZ7AzoGBsbTGZPHVwcj8qGxfKOLgYHxBka1pJWX0nYlfKPRCgwMjIMYeSqWb3fzj5JclTwXAwPjVEZ1oKEXcHsJZb5VxsDAOJtRLbgnzcVeKS2/8+UbYmBgvIwxKeLf0aNozoxgYGAcwZgHwcnIRTVlLGe4GBgYRzB2NQbyjeukqXB7fwMDA+MhjL3JXI89Ce4YGBinMqqjqPkr5uurDdRmuQ0DA+PhjDzkVRsAdzQYfpkZwcDAeAGjWoCbD6FOwjEGBsZ7GDkg/7d3h2Y7EwMD41DGroGJXmGuGmSjpBADA+M4xq6eYL7pTV4lefXCsAUGBsYRjCTI9kJn79MUNq55goiBgXEEo1CCb/3bSzHLjQEMDAyMeH3SSJgX9UYBFwMD4wWMagK3txlwuYnFwMA4mpGEwsk2tRpkq+EYAwPjbMYk5FVDdq+Utq2RiYGB8TzGPxqL5PM+t2RgAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
 
-  </div>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@1.6.1/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@1.6.1/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '溪枫狼的博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Title';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
 </body>
 </html>
