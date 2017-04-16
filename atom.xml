@@ -82,13 +82,13 @@
   </entry>
   
   <entry>
-    <title>testBlog</title>
+    <title>WKWebView使用小结</title>
     <link href="https://www.xifenglang.com/2017/04/16/testBlog/"/>
     <id>https://www.xifenglang.com/2017/04/16/testBlog/</id>
     <published>2017-04-16T04:02:55.000Z</published>
-    <updated>2017-04-16T10:53:28.000Z</updated>
+    <updated>2017-04-16T11:12:32.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="wkwebview使用小结"><a href="#WKWebView使用小结" class="headerlink" title="WKWebView使用小结"></a>WKWebView使用小结</h2><p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
+    <content type="html"><![CDATA[<p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><span id="Directory">目录</span></h2><ul>
 <li><a href="#WKWeb_Comfigue">配置WKWebView</a></li>
 <li><a href="#WKWeb_KVO">利用KVO实现进度条</a></li>
@@ -165,7 +165,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;wkwebview使用小结&quot;&gt;&lt;a href=&quot;#WKWebView使用小结&quot; class=&quot;headerlink&quot; title=&quot;WKWebView使用小结&quot;&gt;&lt;/a&gt;WKWebView使用小结&lt;/h2&gt;&lt;p&gt;最近公司开发Web APP,绝大部分界面都是Web网
+      &lt;p&gt;最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。&lt;/p&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;he
     
     </summary>
     

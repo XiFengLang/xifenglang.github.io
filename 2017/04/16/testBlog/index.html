@@ -13,24 +13,24 @@
     
     
     
-    <title>testBlog | 溪枫狼的博客 | 爬更高的山，走更远的路，敲更少的代码。 —iOS开发进阶菜鸟</title>
+    <title>WKWebView使用小结 | 溪枫狼的博客 | 爬更高的山，走更远的路，敲更少的代码。 —iOS开发进阶菜鸟</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
+    <meta name="description" content="最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献   配置WKWebView">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="testBlog">
+<meta property="og:title" content="WKWebView使用小结">
 <meta property="og:url" content="https://www.xifenglang.com/2017/04/16/testBlog/index.html">
 <meta property="og:site_name" content="溪枫狼的博客">
-<meta property="og:description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
-<meta property="og:updated_time" content="2017-04-16T10:53:28.000Z">
+<meta property="og:description" content="最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献   配置WKWebView">
+<meta property="og:updated_time" content="2017-04-16T11:12:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="testBlog">
-<meta name="twitter:description" content="WKWebView使用小结最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献">
+<meta name="twitter:title" content="WKWebView使用小结">
+<meta name="twitter:description" content="最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。 目录 配置WKWebView 利用KVO实现进度条 WKNavigationDelegate协议 WKUIDelegate协议 JS交互实现流程 JS交互 踩坑+填坑 参考文献   配置WKWebView">
     
         <link rel="alternate" type="application/atom+xml" title="溪枫狼的博客" href="/atom.xml">
     
@@ -114,7 +114,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">testBlog</div>
+        <div class="flex-col header-title ellipsis">WKWebView使用小结</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -136,7 +136,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">testBlog</h1>
+        <h1 class="title">WKWebView使用小结</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-04-16T04:02:55.000Z" itemprop="datePublished" class="page-time">
@@ -159,7 +159,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wkwebview使用小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">WKWebView使用小结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录"><span class="post-toc-number">2.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置wkwebview-目录"><span class="post-toc-number">3.</span> <span class="post-toc-text">配置WKWebView   [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用kvo实现进度条-目录"><span class="post-toc-number">4.</span> <span class="post-toc-text">利用KVO实现进度条 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wknavigationdelegate协议监听网页加载周期-目录"><span class="post-toc-number">5.</span> <span class="post-toc-text">WKNavigationDelegate协议，监听网页加载周期 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wkuidelegate协议常用来显示uialertcontroller弹窗-目录"><span class="post-toc-number">6.</span> <span class="post-toc-text">WKUIDelegate协议，常用来显示UIAlertController弹窗 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互实现流程-目录"><span class="post-toc-number">7.</span> <span class="post-toc-text">JS交互实现流程 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互-踩坑-填坑-目录"><span class="post-toc-number">8.</span> <span class="post-toc-text">JS交互 踩坑、填坑 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">9.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录"><span class="post-toc-number">1.</span> <span class="post-toc-text">目录</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置wkwebview-目录"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置WKWebView   [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#利用kvo实现进度条-目录"><span class="post-toc-number">3.</span> <span class="post-toc-text">利用KVO实现进度条 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wknavigationdelegate协议监听网页加载周期-目录"><span class="post-toc-number">4.</span> <span class="post-toc-text">WKNavigationDelegate协议，监听网页加载周期 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#wkuidelegate协议常用来显示uialertcontroller弹窗-目录"><span class="post-toc-number">5.</span> <span class="post-toc-text">WKUIDelegate协议，常用来显示UIAlertController弹窗 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互实现流程-目录"><span class="post-toc-number">6.</span> <span class="post-toc-text">JS交互实现流程 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js交互-踩坑-填坑-目录"><span class="post-toc-number">7.</span> <span class="post-toc-text">JS交互 踩坑、填坑 [↑↑目录]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考文献"><span class="post-toc-number">8.</span> <span class="post-toc-text">参考文献</span></a></li></ol>
         </nav>
     </aside>
     
@@ -167,7 +167,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">testBlog</h1>
+        <h1 class="post-card-title">WKWebView使用小结</h1>
         <div class="post-meta">
             <time class="post-time" title="2017-04-16 12:02:55" datetime="2017-04-16T04:02:55.000Z"  itemprop="datePublished">2017-04-16</time>
 
@@ -184,7 +184,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="wkwebview使用小结"><a href="#WKWebView使用小结" class="headerlink" title="WKWebView使用小结"></a>WKWebView使用小结</h2><p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
+            <p>最近公司开发Web APP,绝大部分界面都是Web网页，所以用WKWebView加载网页，由于Web端的兄弟也是半桶水，结果和他踩了不少坑。在此对WKWebView的使用做些小结，填些踩过的坑。</p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a><span id="Directory">目录</span></h2><ul>
 <li><a href="#WKWeb_Comfigue">配置WKWebView</a></li>
 <li><a href="#WKWeb_KVO">利用KVO实现进度条</a></li>
@@ -264,7 +264,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2017-04-16T10:53:28.000Z" itemprop="dateUpdated">2017-04-16 18:53:28</time>
+    Last updated: <time datetime="2017-04-16T11:12:32.000Z" itemprop="dateUpdated">2017-04-16 19:12:32</time>
 </span><br>
 
 
@@ -295,7 +295,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《WKWebView使用小结》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -305,7 +305,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《WKWebView使用小结》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -315,7 +315,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《testBlog》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WKWebView使用小结》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -440,7 +440,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《WKWebView使用小结》 — 溪枫狼的博客&pic=https://www.xifenglang.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -450,7 +450,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《testBlog》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xifenglang.com/2017/04/16/testBlog/&title=《WKWebView使用小结》 — 溪枫狼的博客&source=随便给点描述" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -460,7 +460,7 @@
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《testBlog》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《WKWebView使用小结》 — 溪枫狼的博客&url=https://www.xifenglang.com/2017/04/16/testBlog/&via=https://www.xifenglang.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
